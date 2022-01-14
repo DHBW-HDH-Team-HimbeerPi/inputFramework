@@ -3,21 +3,21 @@ from enum import Enum
 
 
 class TriggerMode(Enum):
-    call_check = 1
-    check_loop = 2
+    CALL_CHECK = 1
+    CHECK_LOOP = 2
 
 
 class ThresholdType(Enum):
-    lower = 0
-    equal = 1
-    higher = 2
+    LOWER = 0
+    EQUAL = 1
+    HIGHER = 2
 
 
 class Controller(ABC):
-    def __init__(self, trigger_mode: TriggerMode = TriggerMode.check_loop):
+    def __init__(self, trigger_mode: TriggerMode = TriggerMode.CHECK_LOOP):
         self.registered_triggers = []
         self.exit = False
-        if trigger_mode is TriggerMode.check_loop:
+        if trigger_mode is TriggerMode.CHECK_LOOP:
             while not self.exit:
                 self.check_triggers()
 
@@ -58,9 +58,12 @@ class Controller(ABC):
 
     def check_triggers(self):
         for trigger in self.registered_triggers:
-            if (trigger['threshold'] == ThresholdType.lower) and (trigger['trigger_function']() < trigger['threshold']):
+            if (trigger['threshold'] == ThresholdType.LOWER) \
+                    and (trigger['trigger_function']() < trigger['threshold']):
                 trigger['function_to_trigger'](**trigger['function_kwargs'])
-            if (trigger['threshold'] == ThresholdType.equal) and (trigger['trigger_function']() == trigger['threshold']):
+            if (trigger['threshold'] == ThresholdType.EQUAL) \
+                    and (trigger['trigger_function']() == trigger['threshold']):
                 trigger['function_to_trigger'](**trigger['function_kwargs'])
-            if (trigger['threshold'] == ThresholdType.higher) and (trigger['trigger_function']() > trigger['threshold']):
+            if (trigger['threshold'] == ThresholdType.HIGHER) \
+                    and (trigger['trigger_function']() > trigger['threshold']):
                 trigger['function_to_trigger'](**trigger['function_kwargs'])

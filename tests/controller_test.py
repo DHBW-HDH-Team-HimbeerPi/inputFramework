@@ -13,6 +13,6 @@ class Icon(Enum):
 
 
 if __name__ == "main":
-    controller = IMUController(TriggerMode.check_loop)
-    controller.register_trigger(OutputFramework.setWindow, {'ausgabe': Icon.up}, input.rot_x, 0.1, ThresholdType.higher)
-    controller.register_trigger(OutputFramework.setWindow, {'ausgabe': Icon.down}, input.rot_x, -0.1, ThresholdType.lower)
+    controller = IMUController(TriggerMode.CHECK_LOOP)
+    controller.register_trigger(OutputFramework.setWindow, {'ausgabe': Icon.up}, input.rot_x, 0.1, ThresholdType.HIGHER)
+    controller.register_trigger(OutputFramework.setWindow, {'ausgabe': Icon.down}, input.rot_x, -0.1, ThresholdType.LOWER)

@@ -2,6 +2,7 @@ class SensorNotConnectedError(Exception):
     """raised when trying to access a sensor that is not connected"""
 
     def __init__(self, sensor):
+        super().__init__()
         self.sensor = sensor
 
     def __str__(self):
