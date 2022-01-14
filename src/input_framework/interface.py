@@ -16,8 +16,10 @@ class ThresholdType(Enum):
 class Controller(ABC):
     def __init__(self, trigger_mode: TriggerMode = TriggerMode.check_loop):
         self.registered_triggers = []
+        self.exit = False
         if trigger_mode is TriggerMode.check_loop:
-            pass
+            while not self.exit:
+                self.check_triggers()
 
     @property
     def rot_x(self):

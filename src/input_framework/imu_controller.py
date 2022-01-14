@@ -1,3 +1,5 @@
+import atexit
+
 from src.input_framework.interface import Controller, TriggerMode, ThresholdType
 from src.input_framework.sensor_wrapper import SparkfunIcm20948Adapter
 
@@ -6,6 +8,10 @@ class IMUController(Controller):
     def __init__(self, trigger_mode: TriggerMode = TriggerMode.check_loop):
         super().__init__(trigger_mode)
         self.imu = SparkfunIcm20948Adapter()
+        atexit.register(exit)
+
+    def exit(self):
+        super().exit = True
 
     @property
     def rot_x(self):
