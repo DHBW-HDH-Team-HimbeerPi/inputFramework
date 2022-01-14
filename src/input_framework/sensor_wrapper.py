@@ -2,7 +2,7 @@ import atexit
 import numpy as np
 import qwiic_icm20948
 
-from src.input_framework.exceptions import SensorNotConnectedError
+from input_framework.exceptions import SensorNotConnectedError
 
 shortest_update_dt = 10  # in ms
 

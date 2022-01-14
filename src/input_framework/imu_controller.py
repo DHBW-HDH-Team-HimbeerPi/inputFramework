@@ -1,7 +1,7 @@
 """module contains controller for sparkfun imu"""
 import atexit
-from src.input_framework.interface import Controller, TriggerMode, ThresholdType
-from src.input_framework.sensor_wrapper import SparkfunIcm20948Adapter
+from input_framework.interface import Controller, TriggerMode, ThresholdType
+from input_framework.sensor_wrapper import SparkfunIcm20948Adapter
 
 
 class IMUController(Controller):
