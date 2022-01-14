@@ -3,8 +3,8 @@ from enum import Enum
 import numpy as np
 from output_framework.output_framework import OutputFramework
 
-from src.input_framework.imu_controller import IMUController
-from src.input_framework.interface import ThresholdType, TriggerMode
+from input_framework.imu_controller import IMUController
+from input_framework.interface import ThresholdType, TriggerMode
 
 
 class Icon(Enum):
