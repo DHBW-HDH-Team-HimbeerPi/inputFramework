@@ -4,6 +4,8 @@ import qwiic_icm20948
 
 from input_framework.exceptions import SensorNotConnectedError
 
+from input_framework import utils
+
 shortest_update_dt = 10  # in ms
 
 
