@@ -59,11 +59,15 @@ class Controller(ABC):
         for trigger in self.registered_triggers:
             if (trigger['threshold'] == ThresholdType.LOWER) \
                     and (trigger['trigger_function']() < trigger['threshold']):
-                print(f"trigger {trigger['trigger_function']}")
+                print(f"trigger higher {trigger['trigger_function']}")
                 trigger['function_to_trigger'](**trigger['function_kwargs'])
+
             if (trigger['threshold'] == ThresholdType.EQUAL) \
                     and (trigger['trigger_function']() == trigger['threshold']):
+                print(f"trigger equal {trigger['trigger_function']}")
                 trigger['function_to_trigger'](**trigger['function_kwargs'])
+
             if (trigger['threshold'] == ThresholdType.HIGHER) \
                     and (trigger['trigger_function']() > trigger['threshold']):
+                print(f"trigger higher {trigger['trigger_function']}")
                 trigger['function_to_trigger'](**trigger['function_kwargs'])
