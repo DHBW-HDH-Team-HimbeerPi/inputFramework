@@ -27,27 +27,21 @@ class Controller(ABC):
         if trigger_mode is TriggerMode.CHECK_LOOP:
             check_loop()
 
-    @property
     def rot_x(self):
         pass
 
-    @property
     def rot_y(self):
         pass
 
-    @property
     def rot_z(self):
         pass
 
-    @property
     def mov_x(self):
         pass
 
-    @property
     def mov_y(self):
         pass
 
-    @property
     def mov_z(self):
         pass
 
