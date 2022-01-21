@@ -64,7 +64,9 @@ class Controller(ABC):
 
     def check_triggers(self):
         for trigger in self.registered_triggers:
-            print(str(trigger['trigger_function']) + ' | ' + str(trigger['trigger_function']()))
+            print(str(trigger['trigger_function'].__name__)
+                  + ' | '
+                  + str(trigger['trigger_function']()))
             if (trigger['threshold'] == ThresholdType.LOWER) \
                     and (trigger['trigger_function']() < trigger['threshold']):
                 trigger['function_to_trigger'](**trigger['function_kwargs'])
