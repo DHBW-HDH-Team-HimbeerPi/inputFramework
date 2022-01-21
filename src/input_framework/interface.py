@@ -1,3 +1,4 @@
+import asyncio
 from abc import ABC
 from enum import Enum
 
@@ -24,7 +25,7 @@ class Controller(ABC):
                 self.check_triggers()
 
         if trigger_mode is TriggerMode.CHECK_LOOP:
-            await check_loop()
+            asyncio.gather(check_loop())
 
     @property
     def rot_x(self):
