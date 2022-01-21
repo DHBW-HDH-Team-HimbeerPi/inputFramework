@@ -26,7 +26,6 @@ class Controller(ABC):
 
         if trigger_mode is TriggerMode.CHECK_LOOP:
             check_loop()
-            asyncio.gather(check_loop())
 
     @property
     def rot_x(self):
