@@ -49,6 +49,7 @@ class SparkfunIcm20948Adapter():
     def scaled_angular_acceleration(self):
         self.update_values()
         self._scaled_angular_acceleration = self.retrieve_scaled_angular_acceleration()
+        print(self._scaled_angular_acceleration)
         return self._scaled_angular_acceleration
 
     @property
