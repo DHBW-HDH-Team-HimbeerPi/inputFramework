@@ -57,6 +57,7 @@ class Controller(ABC):
 
     def check_triggers(self):
         for trigger in self.registered_triggers:
+            print(f"vals {trigger['trigger_function']()}")
             if (trigger['threshold'] == ThresholdType.LOWER) \
                     and (trigger['trigger_function']() < trigger['threshold']):
                 print(f"trigger higher {trigger['trigger_function']}")

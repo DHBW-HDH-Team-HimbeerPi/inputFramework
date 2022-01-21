@@ -1,3 +1,5 @@
+import time
+
 import numpy as np
 from input_framework.imu_controller import IMUController
 from input_framework.interface import ThresholdType, TriggerMode
@@ -16,3 +18,4 @@ if __name__ == "__main__":
                                 -0.1, ThresholdType.LOWER)
     while True:
         controller.check_triggers()
+        time.sleep(1)
