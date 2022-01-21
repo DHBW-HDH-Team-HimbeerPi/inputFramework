@@ -21,7 +21,6 @@ class Controller(ABC):
 
         async def check_loop():
             while True:
-                print("blah")
                 self.check_triggers()
 
         if trigger_mode is TriggerMode.CHECK_LOOP:
@@ -58,11 +57,9 @@ class Controller(ABC):
 
     def check_triggers(self):
         for trigger in self.registered_triggers:
-            print(str(trigger['trigger_function'].__name__)
-                  + ' | '
-                  + str(trigger['trigger_function']()))
             if (trigger['threshold'] == ThresholdType.LOWER) \
                     and (trigger['trigger_function']() < trigger['threshold']):
+                print(f"trigger {trigger['trigger_function']}")
                 trigger['function_to_trigger'](**trigger['function_kwargs'])
             if (trigger['threshold'] == ThresholdType.EQUAL) \
                     and (trigger['trigger_function']() == trigger['threshold']):
