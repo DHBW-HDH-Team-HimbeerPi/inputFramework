@@ -17,10 +17,14 @@ class Controller(ABC):
     def __init__(self, trigger_mode: TriggerMode = TriggerMode.CHECK_LOOP):
         self.registered_triggers = []
         self.exit = False
-        if trigger_mode is TriggerMode.CHECK_LOOP:
+
+        async def check_loop():
             while not self.exit:
                 print("blah")
                 self.check_triggers()
+
+        if trigger_mode is TriggerMode.CHECK_LOOP:
+            check_loop()
 
     @property
     def rot_x(self):
