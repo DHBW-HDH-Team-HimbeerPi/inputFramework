@@ -9,7 +9,7 @@ from input_framework import utils
 shortest_update_dt = 10  # in ms
 
 
-class SparkfunIcm20948Adapter():
+class SparkfunIcm20948Adapter:
 
     def __init__(self):
         print('[SparkfunIcm20948Adapter] started initialisation')
@@ -18,6 +18,10 @@ class SparkfunIcm20948Adapter():
         if not self.imu.connected:
             print("The Qwiic ICM20948 device isn't connected to the system. Please check your connection")
             raise SensorNotConnectedError("Qwiic ICM20948")
+        self.imu.setFullScaleRangeGyro(qwiic_icm20948.dps1000)
+        self.imu.setFullScaleRangeAccel(qwiic_icm20948.gpm4)
+        self.imu.enableDlpfGyro(True)
+        self.imu.enableDlpfAccel(True)
         self.imu.begin()
         self._last_update = None
         self.update_values()
