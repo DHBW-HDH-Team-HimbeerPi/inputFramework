@@ -13,9 +13,9 @@ from output_framework.output_framework import OutputFramework
 if __name__ == "__main__":
     controller = IMUController(TriggerMode.CALL_CHECK)
     controller.register_trigger(OutputFramework.setWindow, {'ausgabe': np.full((16, 16, 3), 100)}, controller.rot_x,
-                                15.0, ThresholdType.HIGHER)
+                                25.0, ThresholdType.HIGHER)
     controller.register_trigger(OutputFramework.setWindow, {'ausgabe': np.full((16, 16, 3), 255)}, controller.rot_x,
-                                -15, ThresholdType.LOWER)
+                                -25.0, ThresholdType.LOWER)
     while True:
         controller.check_triggers()
-        time.sleep(1)
+        time.sleep(0.1)
