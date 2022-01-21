@@ -58,17 +58,17 @@ class Controller(ABC):
     def check_triggers(self):
         for trigger in self.registered_triggers:
             print(f"vals {trigger['trigger_function']()}")
-            if (trigger['threshold'] == ThresholdType.LOWER) \
+            if (trigger['threshold_type'] == ThresholdType.LOWER) \
                     and (trigger['trigger_function']() < trigger['threshold']):
                 print(f"trigger higher {trigger['trigger_function']}")
                 trigger['function_to_trigger'](**trigger['function_kwargs'])
 
-            if (trigger['threshold'] == ThresholdType.EQUAL) \
+            if (trigger['threshold_type'] == ThresholdType.EQUAL) \
                     and (trigger['trigger_function']() == trigger['threshold']):
                 print(f"trigger equal {trigger['trigger_function']}")
                 trigger['function_to_trigger'](**trigger['function_kwargs'])
 
-            if (trigger['threshold'] == ThresholdType.HIGHER) \
+            if (trigger['threshold_type'] == ThresholdType.HIGHER) \
                     and (trigger['trigger_function']() > trigger['threshold']):
                 print(f"trigger higher {trigger['trigger_function']}")
                 trigger['function_to_trigger'](**trigger['function_kwargs'])
