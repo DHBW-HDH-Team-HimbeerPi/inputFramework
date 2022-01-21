@@ -24,7 +24,7 @@ class Controller(ABC):
                 self.check_triggers()
 
         if trigger_mode is TriggerMode.CHECK_LOOP:
-            check_loop()
+            await check_loop()
 
     @property
     def rot_x(self):
