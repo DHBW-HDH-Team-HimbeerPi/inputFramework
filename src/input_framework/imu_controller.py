@@ -31,8 +31,8 @@ class IMUController(Controller):
 
     @property
     def mov_y(self):
-        return self.imu.scaled_acceleration[0]
+        return self.imu.scaled_acceleration[1]
 
     @property
     def mov_z(self):
-        return self.imu.scaled_acceleration[0]
+        return self.imu.scaled_acceleration[2]

@@ -20,11 +20,12 @@ class Controller(ABC):
         self.exit = False
 
         async def check_loop():
-            while not self.exit:
+            while True:
                 print("blah")
                 self.check_triggers()
 
         if trigger_mode is TriggerMode.CHECK_LOOP:
+            check_loop()
             asyncio.gather(check_loop())
 
     @property
