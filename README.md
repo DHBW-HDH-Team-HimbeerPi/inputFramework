@@ -1,6 +1,8 @@
 # Input Framework
 ## install
-```bash pip install https://github.com/DHBW-HDH-Team-HimbeerPi/inputFramework/releases/download/latest/input_framework_lars_jaeger-0.0.1-py3-none-any.whl```
+```bash
+pip install https://github.com/DHBW-HDH-Team-HimbeerPi/inputFramework/releases/download/latest/input_framework_lars_jaeger-0.0.1-py3-none-any.wh
+l```
 ## usage
 ### needed imports
 ```python
