@@ -6,12 +6,11 @@ from input_framework.interface import ThresholdType, TriggerMode
 ```
 ### initialyze controller
 ```python
-controller = IMUController(TriggerMode.CALL_CHECK)
+controller = IMUController()
 ```
-The following trigger modes exist:
-#### ```TriggerMode.CALL_CHECK```
-If trigger mode is ```TriggerMode.CALL_CHECK``` you need to call ```controller.check_triggers()``` in your main loop
-- ```TriggerMode.CHECK_LOOP```
+
+You need to call ```controller.check_triggers()``` in your main loop.
+
 ### registering triggers
 your triggers could look something like this
 ```python 

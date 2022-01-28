@@ -4,8 +4,9 @@ from enum import Enum
 
 
 class TriggerMode(Enum):
-    CALL_CHECK = 1
-    CHECK_LOOP = 2
+    """deprecated"""
+    CALL_CHECK = 0
+    CHECK_LOOP = 1
 
 
 class ThresholdType(Enum):
@@ -15,16 +16,9 @@ class ThresholdType(Enum):
 
 
 class Controller(ABC):
-    def __init__(self, trigger_mode: TriggerMode = TriggerMode.CHECK_LOOP):
+    def __init__(self, legacy_trigger_mode=None):
+        # calling this Function with a trigger_mode is deprecated
         self.registered_triggers = []
-        self.exit = False
-
-        async def check_loop():
-            while True:
-                self.check_triggers()
-
-        if trigger_mode is TriggerMode.CHECK_LOOP:
-            check_loop()
 
     def rot_x(self):
         pass
