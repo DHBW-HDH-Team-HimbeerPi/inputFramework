@@ -20,24 +20,6 @@ class Controller(ABC):
         # calling this Function with a trigger_mode is deprecated
         self.registered_triggers = []
 
-    def rot_x(self):
-        pass
-
-    def rot_y(self):
-        pass
-
-    def rot_z(self):
-        pass
-
-    def mov_x(self):
-        pass
-
-    def mov_y(self):
-        pass
-
-    def mov_z(self):
-        pass
-
     def register_trigger(self, function_to_trigger: object, function_kwargs: dict,
                          trigger_function: object, threshold: int, threshold_type: ThresholdType):
         if function_kwargs is None:
