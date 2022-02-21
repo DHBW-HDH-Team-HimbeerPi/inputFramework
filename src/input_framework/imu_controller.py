@@ -6,8 +6,8 @@ from input_framework.sensor_wrapper import SparkfunIcm20948Adapter
 
 
 class IMUController(Controller):
-    def __init__(self, trigger_mode: TriggerMode = TriggerMode.CHECK_LOOP):
-        super().__init__(trigger_mode)
+    def __init__(self, legacy_trigger_mode: TriggerMode = TriggerMode.CHECK_LOOP):
+        super().__init__(legacy_trigger_mode)
         self.imu = SparkfunIcm20948Adapter()
         atexit.register(exit)
 
